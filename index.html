@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="2024 全国工业设计职业技能大赛 小型家用电器制造工 决赛理论题库刷题：章节练习、模拟考试、错题本、收藏、记忆曲线复习与学习统计。" />
+    <meta name="theme-color" content="#F8F5EF" />
+    <title>小型家用电器制造工题库</title>
+    <script>
+      // 首屏前应用主题，避免深色模式闪白
+      try {
+        var rawSettings = JSON.parse(localStorage.getItem('appq:settings') || '{}');
+        var theme = rawSettings && rawSettings.theme;
+        var prefersDark =
+          typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (theme !== 'light' && prefersDark)) {
+          document.documentElement.dataset.theme = 'dark';
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      } catch (err) {
+        /* 忽略：主题会在 app.js 里再次应用 */
+      }
+    </script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23F8F5EF' stroke='%2333526E' stroke-width='2'/%3E%3Cpath d='M12 6.5v4M20 6.5v4' stroke='%2333526E' stroke-width='2' stroke-linecap='round'/%3E%3Crect x='10' y='10.5' width='12' height='7' rx='2.5' fill='none' stroke='%2333526E' stroke-width='2'/%3E%3Cpath d='M16 17.5v4M16 21.5c-3 0-4.5 1.6-4.5 4' stroke='%2333526E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#/" aria-label="小型家用电器制造工题库首页">
+          <span class="brand__mark" aria-hidden="true">器</span>
+          <span class="brand__text">
+            <strong class="brand__title" id="brand-title">小型家用电器制造工题库</strong>
+            <span class="brand__subtitle" id="brand-subtitle">章节练习 · 模拟考试 · 记忆曲线</span>
+          </span>
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="主导航">
+          <a href="#/" data-nav="home">首页</a>
+          <a href="#/chapters" data-nav="chapters">练习</a>
+          <a href="#/exam" data-nav="exam">模拟考试</a>
+          <a href="#/wrong" data-nav="wrong">错题本</a>
+          <a href="#/favorites" data-nav="favorites">收藏</a>
+          <a href="#/review" data-nav="review">复习</a>
+          <a href="#/stats" data-nav="stats">统计</a>
+          <a href="#/settings" data-nav="settings">设置</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main" tabindex="-1">
+      <div class="boot" role="status">
+        <span class="boot__spinner" aria-hidden="true"></span>
+        <p>正在加载题库…</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span id="footer-total">题库加载中</span>
+        <span class="site-footer__dot" aria-hidden="true">·</span>
+        学习数据仅保存在本机浏览器
+        <span class="site-footer__dot" aria-hidden="true">·</span>
+        <a href="#/settings">设置与数据</a>
+      </p>
+    </footer>
+
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="false"></div>
+    <div id="modal-root"></div>
+
+    <noscript>
+      <p class="noscript">本页面需要启用 JavaScript 才能使用，请在浏览器设置中允许 JavaScript 后刷新。</p>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>正在返回题库首页…</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6bff'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif'%3E%E5%99%A8%3C/text%3E%3C/svg%3E" />
+    <script>
+      // 路径写错（多打字符、大小写不符、深链接直达等）时，回到站点首页。
+      // 保留 hash（#/chapters 这类前端路由）与保留的查询串。
+      (function () {
+        var base = location.pathname;
+        // 取仓库根：本站是 GitHub Pages 项目页，根目录形如 /xiaojiadian-quiz/
+        var match = base.match(/^\/[^/]+\//);
+        var root = match ? match[0] : '/';
+        var target = root + location.search + location.hash;
+        // 避免死循环：如果已经停在根路径，就直接渲染提示而不是再跳一次
+        if (base === root) {
+          document.addEventListener('DOMContentLoaded', function () {
+            var box = document.getElementById('fallback');
+            if (box) box.hidden = false;
+          });
+          return;
+        }
+        location.replace(target);
+      })();
+    </script>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+        background: #f5f7fb;
+        color: #1f2430;
+      }
+      @media (prefers-color-scheme: dark) {
+        body { background: #14161c; color: #e7eaf3; }
+        .card { background: #1c1f27 !important; border-color: #2b3040 !important; }
+      }
+      .card {
+        max-width: 460px;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #e2e7f0;
+        border-radius: 16px;
+        padding: 28px 24px;
+        text-align: center;
+        box-shadow: 0 8px 28px rgba(20, 30, 60, 0.08);
+      }
+      h1 { font-size: 1.1rem; margin: 0 0 10px; }
+      p { margin: 0 0 16px; font-size: 0.92rem; line-height: 1.6; opacity: 0.78; }
+      a {
+        display: inline-block;
+        padding: 10px 22px;
+        border-radius: 10px;
+        background: #2f6bff;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="fallback" hidden>
+      <h1>这个地址不存在</h1>
+      <p>网址可能多打了字符。下面是题库首页。</p>
+      <a href="./">进入题库首页</a>
+    </div>
+  </body>
+</html>
